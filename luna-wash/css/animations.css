@@ -1,0 +1,542 @@
+/* ========================================
+   LÜNA WASH - Animations & Keyframes
+   ======================================== */
+
+/* ==================== FLOATING ANIMATIONS ==================== */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+/* ==================== PULSE ANIMATIONS ==================== */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.02);
+        opacity: 0.9;
+    }
+}
+
+/* ==================== FADE ANIMATIONS ==================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* ==================== SLIDE ANIMATIONS ==================== */
+@keyframes slideInUp {
+    from {
+        transform: translateY(15px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        transform: translateY(-15px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutLeft {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+}
+
+/* ==================== SCALE ANIMATIONS ==================== */
+@keyframes scaleIn {
+    from {
+        transform: scale(0.98);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes scaleOut {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+}
+
+/* ==================== ROTATION ANIMATIONS ==================== */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spinReverse {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+/* ==================== GLOW ANIMATIONS ==================== */
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(255, 107, 53, 0.3),
+                    0 0 10px rgba(255, 107, 53, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(255, 107, 53, 0.5),
+                    0 0 25px rgba(255, 107, 53, 0.3);
+    }
+}
+
+/* ==================== SHIMMER ANIMATION ==================== */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+/* ==================== BOUNCE ANIMATIONS ==================== */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes bounce-in {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ==================== TILT ANIMATION ==================== */
+@keyframes tilt {
+    0%, 100% {
+        transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+    }
+    25% {
+        transform: perspective(1000px) rotateX(2deg) rotateY(2deg);
+    }
+    50% {
+        transform: perspective(1000px) rotateX(-2deg) rotateY(-2deg);
+    }
+    75% {
+        transform: perspective(1000px) rotateX(1deg) rotateY(-1deg);
+    }
+}
+
+/* ==================== PARALLAX ANIMATION ==================== */
+@keyframes parallax {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(50px);
+    }
+}
+
+/* ==================== WAVE ANIMATION ==================== */
+@keyframes wave {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* ==================== GRADIENT SHIFT ==================== */
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* ==================== CARD HOVER ANIMATIONS ==================== */
+.glass-card {
+    will-change: transform, box-shadow;
+}
+
+.glass-card:hover {
+    animation: none;
+}
+
+/* ==================== BUTTON ANIMATIONS ==================== */
+.btn {
+    will-change: transform, box-shadow;
+}
+
+.btn:hover {
+    animation: glow 0.6s ease infinite;
+}
+
+/* ==================== NAVBAR ANIMATIONS ==================== */
+.nav-menu {
+    animation: slideInDown 0.5s ease;
+}
+
+.nav-link {
+    position: relative;
+    will-change: color;
+}
+
+/* ==================== HERO ANIMATIONS ==================== */
+.hero-heading {
+    animation: slideInLeft 0.8s ease 0.1s both;
+    will-change: transform, opacity;
+}
+
+.hero-subheading {
+    animation: slideInLeft 0.8s ease 0.2s both;
+    will-change: transform, opacity;
+}
+
+.hero-buttons {
+    animation: slideInLeft 0.8s ease 0.3s both;
+    will-change: transform, opacity;
+}
+
+.hero-graphic {
+    animation: slideInRight 0.8s ease 0.2s both;
+    will-change: transform, opacity;
+}
+
+/* ==================== SECTION ANIMATIONS ==================== */
+section {
+    will-change: opacity;
+}
+
+/* ==================== FORM ANIMATIONS ==================== */
+.form-group {
+    animation: slideInUp 0.6s ease backwards;
+    will-change: transform, opacity;
+}
+
+.form-group:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.form-group:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.form-group:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.form-group:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.form-group:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+.form-group:nth-child(6) {
+    animation-delay: 0.5s;
+}
+
+/* ==================== TOAST ANIMATIONS ==================== */
+.toast {
+    will-change: bottom;
+    box-shadow: 0 0 0 rgba(255, 107, 53, 0);
+    transition: all 0.3s ease;
+}
+
+.toast.show {
+    animation: slideInUp 0.3s ease;
+}
+
+.toast.success {
+    box-shadow: 0 0 20px rgba(74, 222, 128, 0.3);
+}
+
+.toast.error {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+}
+
+/* ==================== SERVICE CARDS ANIMATIONS ==================== */
+.service-card {
+    animation: scaleIn 0.6s ease backwards;
+    will-change: transform;
+}
+
+.service-card:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.service-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.service-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.service-card:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+/* ==================== PROCESS CARDS ANIMATIONS ==================== */
+.process-step {
+    animation: slideInUp 0.6s ease backwards;
+    will-change: transform, opacity;
+}
+
+.process-step:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.process-step:nth-child(3) {
+    animation-delay: 0.1s;
+}
+
+.process-step:nth-child(5) {
+    animation-delay: 0.2s;
+}
+
+.process-step:nth-child(7) {
+    animation-delay: 0.3s;
+}
+
+/* ==================== PRICING CARDS ANIMATIONS ==================== */
+.pricing-card {
+    animation: slideInUp 0.6s ease backwards;
+    will-change: transform, opacity;
+}
+
+.pricing-card:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.pricing-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.pricing-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+/* ==================== TESTIMONIAL CARDS ANIMATIONS ==================== */
+.testimonial-card {
+    animation: slideInUp 0.6s ease backwards;
+    will-change: transform, opacity;
+}
+
+.testimonial-card:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.testimonial-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.testimonial-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.testimonial-card:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+/* ==================== FOOTER ANIMATIONS ==================== */
+.footer-section {
+    animation: fadeIn 0.8s ease backwards;
+    will-change: opacity;
+}
+
+.footer-section:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.footer-section:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.footer-section:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.footer-section:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+/* ==================== 3D TILT EFFECT ==================== */
+.glass-card-tilt {
+    perspective: 1000px;
+    will-change: transform;
+}
+
+.glass-card-tilt:hover {
+    animation: tilt 0.6s ease infinite;
+}
+
+/* ==================== SMOOTH SCROLL REVEAL ==================== */
+.reveal {
+    opacity: 0;
+    will-change: opacity, transform;
+}
+
+.reveal.active {
+    animation: slideInUp 0.8s ease forwards;
+}
+
+/* ==================== STAGGER ANIMATION FOR LISTS ==================== */
+.stagger > * {
+    animation: slideInUp 0.6s ease backwards;
+}
+
+.stagger > *:nth-child(1) { animation-delay: 0s; }
+.stagger > *:nth-child(2) { animation-delay: 0.1s; }
+.stagger > *:nth-child(3) { animation-delay: 0.2s; }
+.stagger > *:nth-child(4) { animation-delay: 0.3s; }
+.stagger > *:nth-child(5) { animation-delay: 0.4s; }
+.stagger > *:nth-child(6) { animation-delay: 0.5s; }
+.stagger > *:nth-child(7) { animation-delay: 0.6s; }
+.stagger > *:nth-child(8) { animation-delay: 0.7s; }
+.stagger > *:nth-child(9) { animation-delay: 0.8s; }
+.stagger > *:nth-child(10) { animation-delay: 0.9s; }
+
+/* ==================== LOADING STATE ==================== */
+@keyframes loading {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.loading {
+    background: linear-gradient(
+        90deg,
+        var(--color-glass-bg) 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        var(--color-glass-bg) 100%
+    );
+    background-size: 1000px 100%;
+    animation: loading 1.5s infinite;
+}
+
+/* ==================== TRANSITION HELPERS ==================== */
+.transition-all {
+    transition: all var(--transition-base);
+}
+
+.transition-fast {
+    transition: all var(--transition-fast);
+}
+
+.transition-slow {
+    transition: all var(--transition-slow);
+}
+
+.no-transition {
+    transition: none !important;
+}
+
+/* ==================== DISABLE ANIMATIONS OVERRIDE ==================== */
+.no-animations, 
+.no-animations *,
+.info-page,
+.info-page * {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+}

@@ -1,0 +1,31 @@
+# ─── Environment / Secrets ───────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+.env.example
+Quick_start.md
+TECH_STACK.md
+API_TESTING.md
+PROJECT_SUMMARY.md
+README_BACKEND.md
+README.md
+# ─── Dependencies ─────────────────────────────────────────────────────────────
+node_modules/
+luna-wash/node_modules/
+
+# ─── Build output ─────────────────────────────────────────────────────────────
+luna-wash/dist/
+dist/
+
+# ─── Logs ─────────────────────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+
+# ─── OS files ─────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ─── Editor ───────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp

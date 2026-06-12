@@ -1,0 +1,461 @@
+/* ========================================
+   LÜNA WASH - Theme System
+   Multiple color themes with CSS variables
+   ======================================== */
+
+/* ==================== DEFAULT DARK THEME ==================== */
+:root,
+[data-theme="dark"] {
+    /* Colors - Primary */
+    --color-primary: #0F1419;
+    --color-secondary: #1A1F2E;
+    --color-accent: #FF6B35;
+    --color-accent-hover: #FF7A4D;
+    --color-accent-active: #E55A2B;
+
+    /* Colors - Text */
+    --color-text: #FFFFFF;
+    --color-text-secondary: #B0B0B0;
+    --color-text-tertiary: #808080;
+
+    /* Colors - Glassmorphic */
+    --color-glass-bg: rgba(255, 255, 255, 0.05);
+    --color-glass-border: rgba(255, 255, 255, 0.1);
+    --color-glass-border-strong: rgba(255, 255, 255, 0.2);
+    --color-backdrop: rgba(0, 0, 0, 0.3);
+    --color-overlay-dark: rgba(0, 0, 0, 0.5);
+    --color-input-bg: rgba(255, 255, 255, 0.05);
+    --color-input-border: rgba(255, 255, 255, 0.1);
+    --color-input-focus: rgba(255, 107, 53, 0.2);
+
+    /* Status Colors */
+    --color-success: #4ECB71;
+    --color-warning: #FFD93D;
+    --color-error: #FF6B6B;
+    --color-info: #6B9EFF;
+}
+
+/* ==================== LIGHT THEME ==================== */
+[data-theme="light"] {
+    /* Colors - Primary */
+    --color-primary: #FFFFFF;
+    --color-secondary: #FAFAFA;
+    --color-accent: #FF6B35;
+    --color-accent-hover: #E55A2B;
+    --color-accent-active: #D94D1F;
+
+    /* Colors - Text */
+    --color-text: #1A1A1A;
+    --color-text-secondary: #5A5A5A;
+    --color-text-tertiary: #8A8A8A;
+
+    /* Colors - Glassmorphic */
+    --color-glass-bg: rgba(0, 0, 0, 0.02);
+    --color-glass-border: rgba(0, 0, 0, 0.08);
+    --color-glass-border-strong: rgba(0, 0, 0, 0.2);
+    --color-backdrop: rgba(0, 0, 0, 0.05);
+    --color-overlay-dark: rgba(0, 0, 0, 0.1);
+    --color-input-bg: rgba(0, 0, 0, 0.02);
+    --color-input-border: rgba(0, 0, 0, 0.08);
+    --color-input-focus: rgba(255, 107, 53, 0.15);
+
+    /* Status Colors */
+    --color-success: #2EAA4D;
+    --color-warning: #E8A800;
+    --color-error: #D63031;
+    --color-info: #2E5F8A;
+}
+
+/* ==================== OCEAN BLUE THEME ==================== */
+[data-theme="ocean"] {
+    /* Colors - Primary */
+    --color-primary: #0B1E35;
+    --color-secondary: #1A3A52;
+    --color-accent: #00D9FF;
+    --color-accent-hover: #26E0FF;
+    --color-accent-active: #00B8D4;
+
+    /* Colors - Text */
+    --color-text: #E8F4F8;
+    --color-text-secondary: #A0C4D0;
+    --color-text-tertiary: #7A9AA8;
+
+    /* Colors - Glassmorphic */
+    --color-glass-bg: rgba(0, 217, 255, 0.05);
+    --color-glass-border: rgba(0, 217, 255, 0.1);
+    --color-glass-border-strong: rgba(0, 217, 255, 0.15);
+    --color-backdrop: rgba(0, 0, 0, 0.4);
+    --color-overlay-dark: rgba(0, 0, 0, 0.6);
+    --color-input-bg: rgba(0, 217, 255, 0.05);
+    --color-input-border: rgba(0, 217, 255, 0.1);
+    --color-input-focus: rgba(0, 217, 255, 0.2);
+
+    /* Status Colors */
+    --color-success: #00D9A3;
+    --color-warning: #FFB84D;
+    --color-error: #FF6B6B;
+    --color-info: #00D9FF;
+}
+
+/* ==================== FOREST GREEN THEME ==================== */
+[data-theme="forest"] {
+    /* Colors - Primary */
+    --color-primary: #0F2818;
+    --color-secondary: #1A3A2A;
+    --color-accent: #4ECB71;
+    --color-accent-hover: #63D989;
+    --color-accent-active: #2DB859;
+
+    /* Colors - Text */
+    --color-text: #E8F5F0;
+    --color-text-secondary: #A8D4C0;
+    --color-text-tertiary: #7FA89A;
+
+    /* Colors - Glassmorphic */
+    --color-glass-bg: rgba(78, 203, 113, 0.05);
+    --color-glass-border: rgba(78, 203, 113, 0.1);
+    --color-glass-border-strong: rgba(78, 203, 113, 0.15);
+    --color-backdrop: rgba(0, 0, 0, 0.4);
+    --color-overlay-dark: rgba(0, 0, 0, 0.6);
+    --color-input-bg: rgba(78, 203, 113, 0.05);
+    --color-input-border: rgba(78, 203, 113, 0.1);
+    --color-input-focus: rgba(78, 203, 113, 0.2);
+
+    /* Status Colors */
+    --color-success: #4ECB71;
+    --color-warning: #FFD93D;
+    --color-error: #FF6B6B;
+    --color-info: #6B9EFF;
+}
+
+/* ==================== SUNSET THEME ==================== */
+[data-theme="sunset"] {
+    /* Colors - Primary */
+    --color-primary: #2A1810;
+    --color-secondary: #3E2418;
+    --color-accent: #FF9F43;
+    --color-accent-hover: #FFAA5C;
+    --color-accent-active: #FF8B2F;
+
+    /* Colors - Text */
+    --color-text: #FFE8D6;
+    --color-text-secondary: #D9B8A8;
+    --color-text-tertiary: #B8968A;
+
+    /* Colors - Glassmorphic */
+    --color-glass-bg: rgba(255, 159, 67, 0.05);
+    --color-glass-border: rgba(255, 159, 67, 0.1);
+    --color-glass-border-strong: rgba(255, 159, 67, 0.15);
+    --color-backdrop: rgba(0, 0, 0, 0.4);
+    --color-overlay-dark: rgba(0, 0, 0, 0.6);
+    --color-input-bg: rgba(255, 159, 67, 0.05);
+    --color-input-border: rgba(255, 159, 67, 0.1);
+    --color-input-focus: rgba(255, 159, 67, 0.2);
+
+    /* Status Colors */
+    --color-success: #5FD3BC;
+    --color-warning: #FFD93D;
+    --color-error: #FF6B6B;
+    --color-info: #6B9EFF;
+}
+
+/* ==================== PURPLE THEME ==================== */
+[data-theme="purple"] {
+    /* Colors - Primary */
+    --color-primary: #1A0F33;
+    --color-secondary: #2D1B47;
+    --color-accent: #B366FF;
+    --color-accent-hover: #C480FF;
+    --color-accent-active: #9F4DFF;
+
+    /* Colors - Text */
+    --color-text: #F0E8FF;
+    --color-text-secondary: #C9B8D9;
+    --color-text-tertiary: #A899C2;
+
+    /* Colors - Glassmorphic */
+    --color-glass-bg: rgba(179, 102, 255, 0.05);
+    --color-glass-border: rgba(179, 102, 255, 0.1);
+    --color-glass-border-strong: rgba(179, 102, 255, 0.15);
+    --color-backdrop: rgba(0, 0, 0, 0.4);
+    --color-overlay-dark: rgba(0, 0, 0, 0.6);
+    --color-input-bg: rgba(179, 102, 255, 0.05);
+    --color-input-border: rgba(179, 102, 255, 0.1);
+    --color-input-focus: rgba(179, 102, 255, 0.2);
+
+    /* Status Colors */
+    --color-success: #4ECB71;
+    --color-warning: #FFD93D;
+    --color-error: #FF6B6B;
+    --color-info: #8B9EFF;
+}
+
+/* ==================== COOL GRAY THEME ==================== */
+[data-theme="coolGray"] {
+    /* Colors - Primary */
+    --color-primary: #0D1419;
+    --color-secondary: #1A2633;
+    --color-accent: #7DB8DA;
+    --color-accent-hover: #8FC7E8;
+    --color-accent-active: #6BA8CC;
+
+    /* Colors - Text */
+    --color-text: #E8EEF5;
+    --color-text-secondary: #A8B5C8;
+    --color-text-tertiary: #7A8A9F;
+
+    /* Colors - Glassmorphic */
+    --color-glass-bg: rgba(125, 184, 218, 0.05);
+    --color-glass-border: rgba(125, 184, 218, 0.1);
+    --color-glass-border-strong: rgba(125, 184, 218, 0.15);
+    --color-backdrop: rgba(0, 0, 0, 0.4);
+    --color-overlay-dark: rgba(0, 0, 0, 0.6);
+    --color-input-bg: rgba(125, 184, 218, 0.05);
+    --color-input-border: rgba(125, 184, 218, 0.1);
+    --color-input-focus: rgba(125, 184, 218, 0.2);
+
+    /* Status Colors */
+    --color-success: #4ECB71;
+    --color-warning: #FFD93D;
+    --color-error: #FF6B6B;
+    --color-info: #7DB8DA;
+}
+
+/* ==================== ARCTIC BLUE THEME ==================== */
+[data-theme="arctic"] {
+    /* Colors - Primary */
+    --color-primary: #0A1F33;
+    --color-secondary: #152D47;
+    --color-accent: #00E5FF;
+    --color-accent-hover: #33F0FF;
+    --color-accent-active: #00C8E5;
+
+    /* Colors - Text */
+    --color-text: #E0F7FF;
+    --color-text-secondary: #A8D9F0;
+    --color-text-tertiary: #7AB8E5;
+
+    /* Colors - Glassmorphic */
+    --color-glass-bg: rgba(0, 229, 255, 0.05);
+    --color-glass-border: rgba(0, 229, 255, 0.1);
+    --color-glass-border-strong: rgba(0, 229, 255, 0.15);
+    --color-backdrop: rgba(0, 0, 0, 0.4);
+    --color-overlay-dark: rgba(0, 0, 0, 0.6);
+    --color-input-bg: rgba(0, 229, 255, 0.05);
+    --color-input-border: rgba(0, 229, 255, 0.1);
+    --color-input-focus: rgba(0, 229, 255, 0.2);
+
+    /* Status Colors */
+    --color-success: #2FE5A3;
+    --color-warning: #FFD93D;
+    --color-error: #FF6B9D;
+    --color-info: #00E5FF;
+}
+
+/* ==================== WARM CORAL THEME ==================== */
+[data-theme="coral"] {
+    /* Colors - Primary */
+    --color-primary: #1A0F0C;
+    --color-secondary: #33211B;
+    --color-accent: #FF7A5C;
+    --color-accent-hover: #FF8F73;
+    --color-accent-active: #E56644;
+
+    /* Colors - Text */
+    --color-text: #FFE8E0;
+    --color-text-secondary: #D9A89C;
+    --color-text-tertiary: #B8827A;
+
+    /* Colors - Glassmorphic */
+    --color-glass-bg: rgba(255, 122, 92, 0.05);
+    --color-glass-border: rgba(255, 122, 92, 0.1);
+    --color-glass-border-strong: rgba(255, 122, 92, 0.15);
+    --color-backdrop: rgba(0, 0, 0, 0.4);
+    --color-overlay-dark: rgba(0, 0, 0, 0.6);
+    --color-input-bg: rgba(255, 122, 92, 0.05);
+    --color-input-border: rgba(255, 122, 92, 0.1);
+    --color-input-focus: rgba(255, 122, 92, 0.2);
+
+    /* Status Colors */
+    --color-success: #4ECB71;
+    --color-warning: #FFD93D;
+    --color-error: #FF6B6B;
+    --color-info: #6B9EFF;
+}
+
+/* ==================== MINT THEME ==================== */
+[data-theme="mint"] {
+    /* Colors - Primary */
+    --color-primary: #0C1818;
+    --color-secondary: #1A2A2A;
+    --color-accent: #2FCCB8;
+    --color-accent-hover: #4FD9CC;
+    --color-accent-active: #1FBB9F;
+
+    /* Colors - Text */
+    --color-text: #E0F5F2;
+    --color-text-secondary: #A0D9D0;
+    --color-text-tertiary: #7AB8A8;
+
+    /* Colors - Glassmorphic */
+    --color-glass-bg: rgba(47, 204, 184, 0.05);
+    --color-glass-border: rgba(47, 204, 184, 0.1);
+    --color-glass-border-strong: rgba(47, 204, 184, 0.15);
+    --color-backdrop: rgba(0, 0, 0, 0.4);
+    --color-overlay-dark: rgba(0, 0, 0, 0.6);
+    --color-input-bg: rgba(47, 204, 184, 0.05);
+    --color-input-border: rgba(47, 204, 184, 0.1);
+    --color-input-focus: rgba(47, 204, 184, 0.2);
+
+    /* Status Colors */
+    --color-success: #2FCCB8;
+    --color-warning: #FFD93D;
+    --color-error: #FF6B6B;
+    --color-info: #6B9EFF;
+}
+
+/* ==================== CRIMSON RED THEME ==================== */
+[data-theme="crimson"] {
+    /* Colors - Primary */
+    --color-primary: #1A0A0A;
+    --color-secondary: #2B1515;
+    --color-accent: #FF3366;
+    --color-accent-hover: #FF4D7A;
+    --color-accent-active: #E62E5C;
+
+    /* Colors - Text */
+    --color-text: #FFE5EB;
+    --color-text-secondary: #D9A8B5;
+    --color-text-tertiary: #B88A96;
+
+    /* Colors - Glassmorphic */
+    --color-glass-bg: rgba(255, 51, 102, 0.05);
+    --color-glass-border: rgba(255, 51, 102, 0.1);
+    --color-glass-border-strong: rgba(255, 51, 102, 0.15);
+    --color-backdrop: rgba(0, 0, 0, 0.4);
+    --color-overlay-dark: rgba(0, 0, 0, 0.6);
+    --color-input-bg: rgba(255, 51, 102, 0.05);
+    --color-input-border: rgba(255, 51, 102, 0.1);
+    --color-input-focus: rgba(255, 51, 102, 0.2);
+
+    /* Status Colors */
+    --color-success: #4ECB71;
+    --color-warning: #FFD93D;
+    --color-error: #FF3366;
+    --color-info: #6B9EFF;
+}
+
+/* ==================== ROSE RED THEME (Light) ==================== */
+[data-theme="rose"] {
+    /* Colors - Primary */
+    --color-primary: #FFFFFF;
+    --color-secondary: #FFF0F2;
+    --color-accent: #FF4D6D;
+    --color-accent-hover: #E6395A;
+    --color-accent-active: #CC2B49;
+
+    /* Colors - Text */
+    --color-text: #2B0A12;
+    --color-text-secondary: #6B3D48;
+    --color-text-tertiary: #8F6670;
+
+    /* Colors - Glassmorphic */
+    --color-glass-bg: rgba(255, 77, 109, 0.03);
+    --color-glass-border: rgba(255, 77, 109, 0.1);
+    --color-glass-border-strong: rgba(255, 77, 109, 0.25);
+    --color-backdrop: rgba(0, 0, 0, 0.05);
+    --color-overlay-dark: rgba(0, 0, 0, 0.15);
+    --color-input-bg: rgba(255, 77, 109, 0.03);
+    --color-input-border: rgba(255, 77, 109, 0.1);
+    --color-input-focus: rgba(255, 77, 109, 0.2);
+
+    /* Status Colors */
+    --color-success: #2EAA4D;
+    --color-warning: #E8A800;
+    --color-error: #D63031;
+    --color-info: #2E5F8A;
+}
+
+/* ==================== SKY BLUE THEME (Light) ==================== */
+[data-theme="sky"] {
+    /* Colors - Primary */
+    --color-primary: #FFFFFF;
+    --color-secondary: #F0F8FF;
+    --color-accent: #4DA8DA;
+    --color-accent-hover: #3A96C8;
+    --color-accent-active: #2A84B6;
+
+    /* Colors - Text */
+    --color-text: #0A1A2B;
+    --color-text-secondary: #3D5A7A;
+    --color-text-tertiary: #6682A3;
+
+    /* Colors - Glassmorphic */
+    --color-glass-bg: rgba(77, 168, 218, 0.03);
+    --color-glass-border: rgba(77, 168, 218, 0.1);
+    --color-glass-border-strong: rgba(77, 168, 218, 0.25);
+    --color-backdrop: rgba(0, 0, 0, 0.05);
+    --color-overlay-dark: rgba(0, 0, 0, 0.15);
+    --color-input-bg: rgba(77, 168, 218, 0.03);
+    --color-input-border: rgba(77, 168, 218, 0.1);
+    --color-input-focus: rgba(77, 168, 218, 0.2);
+
+    /* Status Colors */
+    --color-success: #2EAA4D;
+    --color-warning: #E8A800;
+    --color-error: #D63031;
+    --color-info: #2E5F8A;
+}
+
+/* ==================== SHARED VARIABLES (All Themes) ==================== */
+:root {
+    /* Fonts */
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Spacing */
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 24px;
+    --spacing-lg: 32px;
+    --spacing-xl: 48px;
+    --spacing-2xl: 64px;
+    --spacing-3xl: 80px;
+
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+
+    /* Shadow */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
+    --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-base: 0.3s ease;
+    --transition-slow: 0.5s ease;
+
+    /* Z-index */
+    --z-navbar: 1000;
+    --z-modal: 2000;
+    --z-toast: 3000;
+}
+
+/* ==================== TRANSITION SUPPORT ==================== */
+body {
+    transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+body * {
+    transition: background-color var(--transition-base), 
+                color var(--transition-base), 
+                border-color var(--transition-base);
+}
+/* Chat widget panel uses its own explicit transition — exclude from global rule */
+.chat-panel {
+    transition: opacity 0.22s ease, transform 0.22s cubic-bezier(0.34, 1.4, 0.64, 1) !important;
+}
