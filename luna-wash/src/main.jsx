@@ -497,6 +497,9 @@ function App() {
               <div className="form-group no-animations"><label htmlFor="name">Full Name</label><input type="text" id="name" name="name" required minLength="2" defaultValue={currentUser?.name || ''} /></div>
               <div className="form-group no-animations"><label htmlFor="email">Email Address</label><input type="email" id="email" name="email" required defaultValue={currentUser?.email || ''} /></div>
               <div className="form-group no-animations"><label htmlFor="phone">Phone Number</label><input type="tel" id="phone" name="phone" required /></div>
+              <div className="form-group no-animations"><label htmlFor="pickup_address">Pickup Address</label><input type="text" id="pickup_address" name="pickup_address" required minLength="10" placeholder="e.g. Block A, Room 204, UMT Hostel" /></div>
+              <div className="form-group no-animations"><label htmlFor="area">Area / Landmark</label><input type="text" id="area" name="area" placeholder="e.g. UMT Main Campus, Johar Town" /></div>
+              <input type="hidden" id="city" name="city" value="Lahore" />
               <div className="form-group no-animations">
                 <label htmlFor="service">Service Type</label>
                 <select id="service" name="service" required>
@@ -530,6 +533,11 @@ function App() {
                       <div>
                         <h4>{formatService(booking.service, services)}</h4>
                         <p>{booking.pickup_date || booking.date}</p>
+                        {(booking.pickup_address || booking.area) && (
+                          <p className="booking-address">
+                            📍 {booking.pickup_address}{booking.area ? `, ${booking.area}` : ''}{booking.city ? `, ${booking.city}` : ''}
+                          </p>
+                        )}
                       </div>
                       <div>
                         {booking.plan && <p className="booking-plan">{booking.plan}</p>}

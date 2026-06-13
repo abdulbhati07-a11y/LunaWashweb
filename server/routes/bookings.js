@@ -56,6 +56,35 @@ async function addStatusEvent(bookingId, status, note, changedBy = null) {
     .throwOnError();
 }
 
+function formatAddressFallback(booking) {
+  return `[Pickup: ${booking.pickup_address}${booking.area ? `, ${booking.area}` : ''}, ${booking.city || 'Lahore'}]`;
+}
+
+async function insertBookingRecord(booking) {
+  let { data, error } = await supabaseAdmin
+    .from('bookings')
+    .insert(booking)
+    .select()
+    .single();
+
+  // Graceful fallback when DB migration not applied yet
+  if (error?.message?.includes('pickup_address') || error?.message?.includes("'area'")) {
+    const { pickup_address, area, city, ...rest } = booking;
+    const fallback = {
+      ...rest,
+      message: `${formatAddressFallback(booking)}${rest.message ? `\n${rest.message}` : ''}`.trim()
+    };
+    ({ data, error } = await supabaseAdmin.from('bookings').insert(fallback).select().single());
+    if (data) {
+      data.pickup_address = pickup_address;
+      data.area = area;
+      data.city = city || 'Lahore';
+    }
+  }
+
+  return { data, error };
+}
+
 // ── Routes ────────────────────────────────────────────────────────────────────
 
 /**
@@ -67,20 +96,23 @@ router.post('/', bookingLimiter, asyncHandler(async (req, res) => {
     return res.status(400).json({ message: errors[0], errors });
   }
 
-  const { name, email, phone, service, date, message, plan, profile_id } = req.body;
+  const { name, email, phone, service, date, message, plan, profile_id, pickup_address, area, city } = req.body;
 
   const booking = {
-    name:        name.trim(),
-    email:       email.trim().toLowerCase(),
-    phone:       phone.trim(),
+    name:            name.trim(),
+    email:           email.trim().toLowerCase(),
+    phone:           phone.trim(),
+    pickup_address:  pickup_address.trim(),
+    area:            area?.trim() || null,
+    city:            city?.trim() || 'Lahore',
     service,
-    pickup_date: date,
-    message:     message?.trim() || '',
-    plan:        plan || null,
-    status:      'pending',
-    profile_id:  profile_id || null,
-    service_id:  null,
-    plan_id:     null
+    pickup_date:     date,
+    message:         message?.trim() || '',
+    plan:            plan || null,
+    status:          'pending',
+    profile_id:      profile_id || null,
+    service_id:      null,
+    plan_id:         null
   };
 
   if (isSupabaseAdminConfigured) {
@@ -100,11 +132,7 @@ router.post('/', bookingLimiter, asyncHandler(async (req, res) => {
       if (planRow?.id) booking.plan_id = planRow.id;
     }
 
-    const { data, error } = await supabaseAdmin
-      .from('bookings')
-      .insert(booking)
-      .select()
-      .single();
+    const { data, error } = await insertBookingRecord(booking);
 
     if (error) return res.status(400).json({ message: error.message });
 

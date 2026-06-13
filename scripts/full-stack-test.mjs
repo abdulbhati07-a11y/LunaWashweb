@@ -86,6 +86,9 @@ async function run() {
       name: 'Stack Test Guest',
       email: guestEmail,
       phone: '03704747292',
+      pickup_address: 'Block A, Room 204, UMT Hostel',
+      area: 'UMT Main Campus',
+      city: 'Lahore',
       service: 'express',
       date: dateStr,
       plan: 'Basic',
@@ -96,11 +99,13 @@ async function run() {
   assert('Booking saved to DB', booking.data?.booking?.id);
   assert('service_id linked', !!booking.data?.booking?.service_id);
   assert('plan_id linked', !!booking.data?.booking?.plan_id);
+  assert('pickup_address saved', booking.data?.booking?.pickup_address === 'Block A, Room 204, UMT Hostel');
+  assert('area saved', booking.data?.booking?.area === 'UMT Main Campus');
   const bookingId = booking.data?.booking?.id;
 
   // ── 5. Booking validation ────────────────────────────────────────────────
   const badBooking = await request('POST', '/bookings', {
-    body: { name: 'X', email: 'bad', phone: '1', service: 'invalid', date: '2020-01-01' }
+    body: { name: 'X', email: 'bad', phone: '1', service: 'invalid', date: '2020-01-01', pickup_address: 'short' }
   });
   assert('Booking validation rejects bad input', badBooking.status === 400);
 

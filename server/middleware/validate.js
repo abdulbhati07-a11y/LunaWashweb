@@ -33,7 +33,7 @@ const ALLOWED_PLANS    = ['Basic', 'Premium', 'Elite'];
  */
 export function validateBooking(body) {
   const errors = [];
-  const { name, email, phone, service, date, plan } = body;
+  const { name, email, phone, service, date, plan, pickup_address, area, city } = body;
 
   if (!name || String(name).trim().length < 2)
     errors.push('Name must be at least 2 characters.');
@@ -43,6 +43,15 @@ export function validateBooking(body) {
 
   if (!phone || !isPhone(phone))
     errors.push('A valid phone number is required (7–15 digits).');
+
+  if (!pickup_address || String(pickup_address).trim().length < 10)
+    errors.push('Pickup address must be at least 10 characters.');
+
+  if (area && String(area).trim().length > 0 && String(area).trim().length < 2)
+    errors.push('Area must be at least 2 characters if provided.');
+
+  if (city && String(city).trim().length > 0 && String(city).trim().length < 2)
+    errors.push('City must be at least 2 characters if provided.');
 
   if (!service || !ALLOWED_SERVICES.includes(service))
     errors.push(`Service must be one of: ${ALLOWED_SERVICES.join(', ')}.`);

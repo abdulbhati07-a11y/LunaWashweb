@@ -168,6 +168,9 @@ create table if not exists public.bookings (
   name          text        not null,
   email         text        not null,
   phone         text        not null,
+  pickup_address text       not null default '',
+  area          text,
+  city          text        not null default 'Lahore',
 
   -- Service details
   service       text        not null,   -- matches services.code
@@ -198,7 +201,10 @@ alter table public.bookings
   add column if not exists address_id    uuid        references public.customer_addresses(id) on delete set null,
   add column if not exists pickup_window text,
   add column if not exists total_amount  numeric(10,2),
-  add column if not exists updated_at    timestamptz not null default now();
+  add column if not exists updated_at    timestamptz not null default now(),
+  add column if not exists pickup_address text not null default '',
+  add column if not exists area           text,
+  add column if not exists city           text not null default 'Lahore';
 
 -- Ensure message column is not null (old schema allowed null)
 update public.bookings set message = '' where message is null;
@@ -221,7 +227,9 @@ end $$;
 
 comment on table  public.bookings               is 'Every booking request submitted through the website.';
 comment on column public.bookings.status        is 'Lifecycle: pending → confirmed → picked_up → in_progress → ready → delivered (or cancelled).';
-comment on column public.bookings.pickup_window is 'Optional preferred time window e.g. Morning, Afternoon, Evening.';
+comment on column public.bookings.pickup_address is 'Street / hostel / room address for pickup and delivery.';
+comment on column public.bookings.area          is 'Campus block, neighbourhood, or landmark.';
+comment on column public.bookings.city          is 'City for the pickup address.';
 comment on column public.bookings.total_amount  is 'Calculated order total (set when confirmed).';
 
 

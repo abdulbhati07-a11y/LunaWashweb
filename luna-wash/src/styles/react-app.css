@@ -101,6 +101,13 @@
   text-align: right;
 }
 
+.booking-address {
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  margin: 4px 0 0;
+  line-height: 1.4;
+}
+
 @media (max-width: 767px) {
   .my-bookings-header,
   .booking-item {

@@ -24,7 +24,10 @@ alter table public.bookings
   add column if not exists address_id    uuid references public.customer_addresses(id) on delete set null,
   add column if not exists pickup_window text,
   add column if not exists total_amount  numeric(10,2),
-  add column if not exists updated_at    timestamptz not null default now();
+  add column if not exists updated_at    timestamptz not null default now(),
+  add column if not exists pickup_address text not null default '',
+  add column if not exists area           text,
+  add column if not exists city           text not null default 'Lahore';
 
 alter table public.booking_status_events
   add column if not exists changed_by uuid references public.profiles(id) on delete set null;
