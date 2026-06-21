@@ -14,6 +14,12 @@
 
     .pricing-grid {
         grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-sm);
+    }
+
+    .pricing-card.featured,
+    .pricing-card.selected {
+        transform: scale(1);
     }
 
     .contact-content {
@@ -60,6 +66,31 @@
 
     .testimonial-card {
         min-width: calc((100% - var(--spacing-lg)) / 2);
+    }
+}
+
+/* ==================== BETWEEN TABLET & SMALL DESKTOP (1024px - 1199px) ==================== */
+@media (max-width: 1199px) and (min-width: 1024px) {
+    .pricing-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-md);
+    }
+
+    .pricing-card.featured,
+    .pricing-card.selected {
+        transform: scale(1.02);
+    }
+
+    .process-steps {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .step-connector {
+        display: none;
+    }
+
+    .contact-info {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -139,7 +170,7 @@
     }
 
     .process-steps {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .process-step {
@@ -147,15 +178,15 @@
     }
 
     .testimonials-carousel {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .testimonial-card {
-        min-width: 100%;
+        min-width: calc((100% - var(--spacing-lg)) / 2);
     }
 
     .footer-content {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     section {
@@ -322,22 +353,19 @@
 
     /* SERVICES */
     .services-grid {
-        display: flex;
-        overflow-x: auto;
+        display: grid;
+        grid-template-columns: 1fr;
         gap: var(--spacing-md);
-        padding-bottom: var(--spacing-lg);
-        scroll-snap-type: x mandatory;
-        margin: 0 calc(-1 * var(--spacing-md));
-        padding: 0 var(--spacing-md) var(--spacing-lg);
+        overflow-x: visible;
+        padding: 0;
+        margin: 0;
+        scroll-snap-type: none;
     }
 
     .service-card {
-        flex: 0 0 240px;
-        scroll-snap-align: center;
-        padding: var(--spacing-md);
-    }
-
-    .service-card {
+        flex: unset;
+        width: 100%;
+        scroll-snap-align: unset;
         padding: var(--spacing-md);
     }
 
@@ -384,20 +412,21 @@
     }
 
     .pricing-grid {
-        display: flex;
-        overflow-x: auto;
+        display: grid;
+        grid-template-columns: 1fr;
         gap: var(--spacing-md);
-        padding-bottom: var(--spacing-lg);
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        margin: 0 calc(-1 * var(--spacing-md));
-        padding-left: var(--spacing-md);
-        padding-right: var(--spacing-md);
+        overflow-x: visible;
+        padding: 0;
+        margin: 0;
+        scroll-snap-type: none;
+        -webkit-overflow-scrolling: auto;
     }
 
     .pricing-card {
-        flex: 0 0 280px;
-        scroll-snap-align: center;
+        flex: unset;
+        width: 100%;
+        scroll-snap-align: unset;
+        padding: var(--spacing-lg);
     }
 
     .pricing-card.featured {
@@ -406,8 +435,8 @@
         max-width: 100%;
     }
 
-    .pricing-card {
-        padding: var(--spacing-lg);
+    .pricing-card.selected {
+        transform: scale(1);
     }
 
     .pricing-card h3 {
@@ -649,6 +678,19 @@
         height: 250px;
         margin: var(--spacing-lg) 0;
     }
+
+    /* Theme menu: prevent overflow off-screen right edge */
+    .theme-menu {
+        right: -8px;
+        min-width: 200px;
+        max-width: calc(100vw - 24px);
+    }
+
+    /* Modal full-width on tiny screens */
+    .modal-content {
+        width: calc(100% - 24px);
+        padding: var(--spacing-lg);
+    }
 }
 
 /* ==================== EXTRA SMALL (< 320px) ==================== */
@@ -664,6 +706,12 @@
     .btn {
         padding: 8px 16px;
         font-size: 12px;
+    }
+
+    /* Prevent theme menu from overflowing viewport */
+    .theme-menu {
+        right: -8px;
+        min-width: 180px;
     }
 }
 

@@ -108,7 +108,7 @@ h3 {
 }
 
 h4 {
-    font-size: 24px;
+    font-size: clamp(18px, 2.5vw, 24px);
     font-weight: 600;
     line-height: 1.35;
 }
@@ -1161,6 +1161,45 @@ section {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+    }
+}
+
+/* ==================== IOS / MOBILE FORM FIX ==================== */
+/* Prevent iOS Safari from zooming in when a form input is focused */
+@media (max-width: 767px) {
+    .form-group input,
+    .form-group select,
+    .form-group textarea,
+    .chat-input {
+        font-size: 16px !important;
+    }
+}
+
+/* Ensure nothing causes horizontal scroll */
+body {
+    overflow-x: hidden;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+/* Safe-area insets for notched phones */
+@supports (padding: env(safe-area-inset-bottom)) {
+    .chat-widget {
+        bottom: max(28px, env(safe-area-inset-bottom));
+        right: max(28px, env(safe-area-inset-right));
+    }
+
+    @media (max-width: 480px) {
+        .chat-widget {
+            bottom: max(16px, env(safe-area-inset-bottom));
+            right: max(16px, env(safe-area-inset-right));
+        }
+    }
+
+    .toast.show {
+        bottom: max(32px, env(safe-area-inset-bottom));
     }
 }
 

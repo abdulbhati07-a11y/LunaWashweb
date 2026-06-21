@@ -123,6 +123,50 @@
   }
 }
 
+/* ==================== WASHER RESPONSIVE ==================== */
+@media (max-width: 1199px) {
+  .washer-body {
+    width: min(280px, 65vw);
+  }
+}
+
+@media (max-width: 767px) {
+  .washer-body {
+    width: min(240px, 75vw);
+    padding: 16px;
+    grid-template-rows: 60px 1fr;
+  }
+
+  .washer-controls span {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (max-width: 479px) {
+  .washer-body {
+    width: min(200px, 80vw);
+  }
+}
+
+/* ==================== CONTACT FORM RESPONSIVE ==================== */
+.contact-content {
+  width: 100%;
+  max-width: 480px;
+}
+
+@media (min-width: 768px) {
+  .contact-content {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contact-content {
+    max-width: 480px;
+  }
+}
+
 .theme-toggle-swatch {
   width: 18px;
   height: 18px;
@@ -648,5 +692,13 @@
   .chat-panel {
     width: calc(100vw - 32px);
     max-height: 460px;
+  }
+}
+
+/* Mid-range: slightly more compact */
+@media (max-width: 767px) and (min-width: 481px) {
+  .chat-panel {
+    width: 320px;
+    max-height: 480px;
   }
 }

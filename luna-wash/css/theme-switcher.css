@@ -196,12 +196,28 @@
 
     .theme-menu {
         top: 45px;
-        min-width: 160px;
+        right: 0;
+        min-width: 200px;
+        /* Ensure the menu doesn't overflow the viewport */
+        max-width: calc(100vw - 16px);
     }
 
     .theme-option {
         padding: 10px 12px;
         font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .theme-menu {
+        /* On very small phones, anchor to right edge of screen */
+        position: fixed;
+        top: auto;
+        right: 8px;
+        /* Position below the navbar pill (approx 70px) */
+        top: 80px;
+        max-width: calc(100vw - 16px);
+        max-height: 60vh;
     }
 }
 
