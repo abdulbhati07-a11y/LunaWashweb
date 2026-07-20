@@ -691,9 +691,26 @@ function HeroLaundryScene({ tilt }) {
 
 function ThemeSwitcher({ currentTheme, onThemeChange }) {
   const [open, setOpen] = useState(false);
+  const containerRef = useRef(null);
   const darkThemes = themes.filter((item) => item.type === 'dark');
   const lightThemes = themes.filter((item) => item.type === 'light');
   const selectedTheme = themes.find((item) => item.id === currentTheme) || themes[0];
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (open && containerRef.current && !containerRef.current.contains(event.target)) {
+        setOpen(false);
+      }
+    }
+    
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+    
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [open]);
 
   function chooseTheme(themeId) {
     onThemeChange(themeId);
@@ -701,7 +718,7 @@ function ThemeSwitcher({ currentTheme, onThemeChange }) {
   }
 
   return (
-    <div className="theme-switcher">
+    <div className="theme-switcher" ref={containerRef}>
       <button className="theme-toggle-btn" type="button" title="Theme menu" aria-label="Theme menu" onClick={() => setOpen(!open)}>
         <span className="theme-toggle-swatch" style={{ backgroundColor: selectedTheme.color }}></span>
       </button>
