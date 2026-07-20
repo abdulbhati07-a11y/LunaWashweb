@@ -129,6 +129,67 @@ function App() {
     const stored = localStorage.getItem(THEME_STORAGE_KEY);
     return themes.some((item) => item.id === stored) ? stored : 'dark';
   });
+
+  // Global UI Enhancements
+  useEffect(() => {
+    // 1. Page Load Reveal
+    document.body.classList.add('loaded');
+
+    // 2. Lenis Smooth Scrolling & Scroll Progress Bar
+    let lenis;
+    if (typeof window.Lenis !== 'undefined') {
+      lenis = new window.Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        direction: 'vertical',
+        smooth: true,
+      });
+
+      const progressBar = document.getElementById('scrollProgress');
+
+      function raf(time) {
+        lenis.raf(time);
+        
+        // Update Scroll Progress Bar
+        if (progressBar) {
+          const scrollPx = window.scrollY;
+          const winHeightPx = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          const scrolled = `${(scrollPx / winHeightPx) * 100}%`;
+          progressBar.style.width = scrolled;
+        }
+        
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+    }
+
+    // 3. Magnetic Buttons
+    const buttons = document.querySelectorAll('.btn');
+    const handleMouseMove = (e) => {
+      const btn = e.currentTarget;
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+    };
+    const handleMouseLeave = (e) => {
+      const btn = e.currentTarget;
+      btn.style.transform = 'translate(0px, 0px)';
+    };
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('mousemove', handleMouseMove);
+      btn.addEventListener('mouseleave', handleMouseLeave);
+    });
+
+    return () => {
+      if (lenis) lenis.destroy();
+      buttons.forEach((btn) => {
+        btn.removeEventListener('mousemove', handleMouseMove);
+        btn.removeEventListener('mouseleave', handleMouseLeave);
+      });
+    };
+  }, []);
   const [currentUser, setCurrentUser] = useState(() => {
     try {
       const stored = sessionStorage.getItem('currentUser');
