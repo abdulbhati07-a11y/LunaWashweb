@@ -32,9 +32,11 @@
     --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.1);
 
     /* Transitions */
-    --transition-fast: 0.2s ease;
-    --transition-base: 0.3s ease;
-    --transition-slow: 0.5s ease;
+    --transition-fast: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+    --transition-smooth: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     /* Z-index */
     --z-navbar: 1000;
@@ -54,6 +56,9 @@ html {
     scrollbar-width: thin;
     scrollbar-color: var(--color-accent) var(--color-secondary);
     background-color: var(--color-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 html::-webkit-scrollbar {
@@ -161,13 +166,15 @@ section {
     border-radius: var(--radius-md);
     padding: var(--spacing-lg);
     box-shadow: var(--shadow-glass);
-    transition: all var(--transition-base);
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), background var(--transition-base), border-color var(--transition-base);
+    will-change: transform, box-shadow;
 }
 
 .glass-card:hover {
     background: rgba(255, 255, 255, 0.08);
     border-color: var(--color-glass-border-strong);
-    transform: translateY(-4px);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
 }
 
 /* ==================== 3D BACKGROUND ==================== */
@@ -198,7 +205,8 @@ section {
     align-items: center;
     z-index: var(--z-navbar);
     box-shadow: var(--shadow-glass);
-    transition: all var(--transition-base);
+    transition: top var(--transition-smooth), height var(--transition-smooth), width var(--transition-smooth), max-width var(--transition-smooth), background var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-smooth);
+    will-change: top, width, height;
 }
 
 .navbar.navbar-scrolled {
@@ -244,8 +252,9 @@ section {
     font-size: 15px;
     font-weight: 500;
     color: var(--color-text-secondary);
-    transition: color var(--transition-base);
+    transition: color var(--transition-fast), opacity var(--transition-fast);
     position: relative;
+    will-change: color;
 }
 
 .nav-link:hover,
@@ -267,7 +276,7 @@ section {
     height: 3px;
     background: var(--color-accent);
     border-radius: 2px;
-    transition: all var(--transition-base);
+    transition: transform var(--transition-spring), opacity var(--transition-fast), background var(--transition-fast);
 }
 
 .hamburger.active span:nth-child(1) {
@@ -517,7 +526,7 @@ section {
     font-weight: 600;
     font-family: var(--font-heading);
     cursor: pointer;
-    transition: all var(--transition-base);
+    transition: transform var(--transition-spring), box-shadow var(--transition-smooth), background var(--transition-base), border-color var(--transition-base), color var(--transition-fast);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -525,6 +534,7 @@ section {
     min-width: 120px;
     position: relative;
     overflow: hidden;
+    will-change: transform, box-shadow;
 }
 
 .btn::before {
@@ -554,8 +564,8 @@ section {
 .btn-primary:hover {
     background: var(--color-accent-hover);
     border-color: var(--color-accent-hover);
-    box-shadow: 0 0 20px rgba(255, 107, 53, 0.4);
-    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 107, 53, 0.45), 0 6px 20px rgba(255, 107, 53, 0.25);
+    transform: scale(1.05) translateY(-1px);
 }
 
 .btn-primary:active {
@@ -693,7 +703,7 @@ section {
     border-radius: 16px;
     cursor: pointer;
     position: relative;
-    transition: all var(--transition-base);
+    transition: background var(--transition-smooth), border-color var(--transition-smooth);
 }
 
 .toggle-switch:checked {
@@ -710,7 +720,7 @@ section {
     border-radius: 50%;
     top: 2px;
     left: 2px;
-    transition: left var(--transition-base);
+    transition: left var(--transition-spring), box-shadow var(--transition-fast);
 }
 
 .toggle-switch:checked::before {
@@ -862,7 +872,8 @@ section {
     border-radius: 50%;
     background: var(--color-glass-border);
     cursor: pointer;
-    transition: all var(--transition-base);
+    transition: width var(--transition-spring), border-radius var(--transition-spring), background var(--transition-fast);
+    will-change: width, border-radius;
 }
 
 .dot.active {
@@ -916,8 +927,9 @@ section {
     color: var(--color-text);
     font-family: var(--font-body);
     font-size: 14px;
-    transition: all var(--transition-base);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-smooth), background var(--transition-base), transform var(--transition-spring);
     backdrop-filter: blur(10px);
+    will-change: border-color, box-shadow;
 }
 
 .form-group input::placeholder,
@@ -1032,11 +1044,14 @@ section {
     border: 1px solid var(--color-glass-border);
     border-radius: var(--radius-lg);
     text-align: center;
-    transition: transform var(--transition-base);
+    transition: transform var(--transition-spring), box-shadow var(--transition-smooth), border-color var(--transition-base);
+    will-change: transform;
 }
 
 .info-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-7px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-glass-border-strong);
 }
 
 .info-item h3 {
@@ -1111,7 +1126,7 @@ section {
     border-radius: var(--radius-md);
     color: var(--color-text);
     z-index: var(--z-toast);
-    transition: bottom var(--transition-base);
+    transition: bottom var(--transition-smooth), opacity var(--transition-fast);
     max-width: 400px;
     text-align: center;
     box-shadow: var(--shadow-glass);

@@ -624,7 +624,7 @@
     }
 
     /* GENERAL RESPONSIVE */
-    .stagger > * {
+    .stagger>* {
         animation-delay: 0s !important;
     }
 }
@@ -733,7 +733,9 @@
 }
 
 /* ==================== HIGH DPI DEVICES ==================== */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+
     /* Ensure sharp rendering on high DPI devices */
     * {
         -webkit-font-smoothing: antialiased;
@@ -779,6 +781,7 @@
 
 /* ==================== REDUCED MOTION ==================== */
 @media (prefers-reduced-motion: reduce) {
+
     *,
     *::before,
     *::after {

@@ -8,7 +8,7 @@
         transform: translateY(0px);
     }
     50% {
-        transform: translateY(-4px);
+        transform: translateY(-6px);
     }
 }
 
@@ -46,7 +46,7 @@
 /* ==================== SLIDE ANIMATIONS ==================== */
 @keyframes slideInUp {
     from {
-        transform: translateY(15px);
+        transform: translateY(20px);
         opacity: 0;
     }
     to {
@@ -57,7 +57,7 @@
 
 @keyframes slideInDown {
     from {
-        transform: translateY(-15px);
+        transform: translateY(-20px);
         opacity: 0;
     }
     to {
@@ -68,7 +68,7 @@
 
 @keyframes slideInLeft {
     from {
-        transform: translateX(-20px);
+        transform: translateX(-25px);
         opacity: 0;
     }
     to {
@@ -79,7 +79,7 @@
 
 @keyframes slideInRight {
     from {
-        transform: translateX(20px);
+        transform: translateX(25px);
         opacity: 0;
     }
     to {
@@ -267,7 +267,7 @@
 
 /* ==================== NAVBAR ANIMATIONS ==================== */
 .nav-menu {
-    animation: slideInDown 0.5s ease;
+    animation: slideInDown 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .nav-link {
@@ -277,22 +277,22 @@
 
 /* ==================== HERO ANIMATIONS ==================== */
 .hero-heading {
-    animation: slideInLeft 0.8s ease 0.1s both;
+    animation: slideInLeft 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s both;
     will-change: transform, opacity;
 }
 
 .hero-subheading {
-    animation: slideInLeft 0.8s ease 0.2s both;
+    animation: slideInLeft 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.22s both;
     will-change: transform, opacity;
 }
 
 .hero-buttons {
-    animation: slideInLeft 0.8s ease 0.3s both;
+    animation: slideInLeft 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.35s both;
     will-change: transform, opacity;
 }
 
 .hero-graphic {
-    animation: slideInRight 0.8s ease 0.2s both;
+    animation: slideInRight 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
     will-change: transform, opacity;
 }
 
@@ -303,7 +303,7 @@ section {
 
 /* ==================== FORM ANIMATIONS ==================== */
 .form-group {
-    animation: slideInUp 0.6s ease backwards;
+    animation: slideInUp 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94) backwards;
     will-change: transform, opacity;
 }
 
@@ -339,7 +339,7 @@ section {
 }
 
 .toast.show {
-    animation: slideInUp 0.3s ease;
+    animation: slideInUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .toast.success {
@@ -352,7 +352,7 @@ section {
 
 /* ==================== SERVICE CARDS ANIMATIONS ==================== */
 .service-card {
-    animation: scaleIn 0.6s ease backwards;
+    animation: scaleIn 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) backwards;
     will-change: transform;
 }
 
@@ -374,7 +374,7 @@ section {
 
 /* ==================== PROCESS CARDS ANIMATIONS ==================== */
 .process-step {
-    animation: slideInUp 0.6s ease backwards;
+    animation: slideInUp 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) backwards;
     will-change: transform, opacity;
 }
 
@@ -396,7 +396,7 @@ section {
 
 /* ==================== PRICING CARDS ANIMATIONS ==================== */
 .pricing-card {
-    animation: slideInUp 0.6s ease backwards;
+    animation: slideInUp 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) backwards;
     will-change: transform, opacity;
 }
 
@@ -414,7 +414,7 @@ section {
 
 /* ==================== TESTIMONIAL CARDS ANIMATIONS ==================== */
 .testimonial-card {
-    animation: slideInUp 0.6s ease backwards;
+    animation: slideInUp 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) backwards;
     will-change: transform, opacity;
 }
 
@@ -436,7 +436,7 @@ section {
 
 /* ==================== FOOTER ANIMATIONS ==================== */
 .footer-section {
-    animation: fadeIn 0.8s ease backwards;
+    animation: fadeIn 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) backwards;
     will-change: opacity;
 }
 
@@ -473,12 +473,12 @@ section {
 }
 
 .reveal.active {
-    animation: slideInUp 0.8s ease forwards;
+    animation: slideInUp 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 /* ==================== STAGGER ANIMATION FOR LISTS ==================== */
 .stagger > * {
-    animation: slideInUp 0.6s ease backwards;
+    animation: slideInUp 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94) backwards;
 }
 
 .stagger > *:nth-child(1) { animation-delay: 0s; }

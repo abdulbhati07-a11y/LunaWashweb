@@ -5,6 +5,34 @@
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
+// ==================== LENIS SMOOTH SCROLL ====================
+let lenis;
+
+function initLenis() {
+    if (typeof Lenis !== 'undefined') {
+        lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            mouseMultiplier: 1,
+            smoothTouch: false,
+            touchMultiplier: 2,
+            infinite: false,
+        });
+
+        // Get scroll value
+        lenis.on('scroll', ScrollTrigger.update);
+
+        gsap.ticker.add((time) => {
+            lenis.raf(time * 1000);
+        });
+
+        gsap.ticker.lagSmoothing(0);
+    }
+}
+
 // ==================== SCROLL ANIMATIONS SETUP ====================
 
 /**
@@ -17,18 +45,19 @@ function initScrollAnimations() {
             card,
             {
                 opacity: 0,
-                y: 20,
-                scale: 0.98
+                y: 25,
+                scale: 0.97
             },
             {
                 opacity: 1,
                 y: 0,
                 scale: 1,
-                duration: 0.8,
-                delay: index * 0.1,
+                duration: 0.9,
+                delay: index * 0.08,
+                ease: 'power3.out',
                 scrollTrigger: {
                     trigger: card,
-                    start: 'top 85%',
+                    start: 'top 88%',
                     end: 'top 15%',
                     toggleActions: 'play none none reverse'
                 }
@@ -42,18 +71,19 @@ function initScrollAnimations() {
             step,
             {
                 opacity: 0,
-                y: 20,
-                x: index % 2 === 0 ? -15 : 15
+                y: 25,
+                x: index % 2 === 0 ? -18 : 18
             },
             {
                 opacity: 1,
                 y: 0,
                 x: 0,
-                duration: 0.8,
-                delay: index * 0.1,
+                duration: 0.9,
+                delay: index * 0.08,
+                ease: 'power3.out',
                 scrollTrigger: {
                     trigger: step,
-                    start: 'top 85%',
+                    start: 'top 88%',
                     end: 'top 15%',
                     toggleActions: 'play none none reverse'
                 }
@@ -67,18 +97,19 @@ function initScrollAnimations() {
             card,
             {
                 opacity: 0,
-                y: 30,
-                scale: 0.95
+                y: 35,
+                scale: 0.96
             },
             {
                 opacity: 1,
                 y: 0,
                 scale: 1,
-                duration: 0.9,
+                duration: 1,
                 delay: index * 0.1,
+                ease: 'power3.out',
                 scrollTrigger: {
                     trigger: card,
-                    start: 'top 80%',
+                    start: 'top 82%',
                     end: 'top 20%',
                     toggleActions: 'play none none reverse'
                 }
@@ -92,18 +123,19 @@ function initScrollAnimations() {
             card,
             {
                 opacity: 0,
-                rotateY: -5,
-                x: -20
+                rotateY: -6,
+                x: -25
             },
             {
                 opacity: 1,
                 rotateY: 0,
                 x: 0,
-                duration: 0.8,
+                duration: 0.9,
                 delay: index * 0.1,
+                ease: 'power3.out',
                 scrollTrigger: {
                     trigger: card,
-                    start: 'top 85%',
+                    start: 'top 88%',
                     end: 'top 15%',
                     toggleActions: 'play none none reverse'
                 }
@@ -117,15 +149,16 @@ function initScrollAnimations() {
             title,
             {
                 opacity: 0,
-                y: -15
+                y: -20
             },
             {
                 opacity: 1,
                 y: 0,
-                duration: 1,
+                duration: 1.1,
+                ease: 'expo.out',
                 scrollTrigger: {
                     trigger: title,
-                    start: 'top 90%',
+                    start: 'top 92%',
                     end: 'top 70%',
                     toggleActions: 'play none none reverse'
                 }
@@ -139,16 +172,17 @@ function initScrollAnimations() {
             group,
             {
                 opacity: 0,
-                x: -15
+                x: -18
             },
             {
                 opacity: 1,
                 x: 0,
-                duration: 0.7,
-                delay: index * 0.05,
+                duration: 0.8,
+                delay: index * 0.04,
+                ease: 'power3.out',
                 scrollTrigger: {
                     trigger: group,
-                    start: 'top 85%',
+                    start: 'top 88%',
                     end: 'top 15%',
                     toggleActions: 'play none none reverse'
                 }
@@ -162,16 +196,17 @@ function initScrollAnimations() {
             item,
             {
                 opacity: 0,
-                y: 20
+                y: 25
             },
             {
                 opacity: 1,
                 y: 0,
-                duration: 0.8,
-                delay: index * 0.1,
+                duration: 0.9,
+                delay: index * 0.09,
+                ease: 'power3.out',
                 scrollTrigger: {
                     trigger: item,
-                    start: 'top 85%',
+                    start: 'top 88%',
                     end: 'top 15%',
                     toggleActions: 'play none none reverse'
                 }
@@ -186,15 +221,16 @@ function initScrollAnimations() {
             '.footer',
         {
             opacity: 0,
-            y: 15
+            y: 20
         },
         {
             opacity: 1,
             y: 0,
-            duration: 1,
+            duration: 1.1,
+            ease: 'power3.out',
             scrollTrigger: {
                 trigger: '.footer',
-                start: 'top 95%',
+                start: 'top 97%',
                 end: 'top 75%',
                 toggleActions: 'play none none reverse'
             }
@@ -213,12 +249,13 @@ function setupParallax() {
     
     if (heroSection) {
         gsap.to(heroSection, {
-            y: 100,
+            y: 80,
+            ease: 'none',
             scrollTrigger: {
                 trigger: heroSection,
                 start: 'top top',
                 end: 'bottom center',
-                scrub: 1,
+                scrub: 1.5,
                 markers: false
             }
         });
@@ -228,11 +265,12 @@ function setupParallax() {
             const speed = 50 + index * 30;
             gsap.to(particle, {
                 y: speed,
+                ease: 'none',
                 scrollTrigger: {
                     trigger: heroSection,
                     start: 'top top',
                     end: 'bottom center',
-                    scrub: 1
+                    scrub: 1.5
                 }
             });
         });
@@ -250,35 +288,37 @@ function setupButtonEffects() {
     buttons.forEach(button => {
         button.addEventListener('mouseenter', function() {
             gsap.to(this, {
-                duration: 0.3,
+                duration: 0.35,
                 scale: 1.05,
-                boxShadow: '0 0 30px rgba(255, 107, 53, 0.5)',
-                ease: 'power2.out'
+                y: -1,
+                boxShadow: '0 0 30px rgba(255, 107, 53, 0.5), 0 6px 20px rgba(255, 107, 53, 0.25)',
+                ease: 'power3.out'
             });
         });
 
         button.addEventListener('mouseleave', function() {
             gsap.to(this, {
-                duration: 0.3,
+                duration: 0.4,
                 scale: 1,
+                y: 0,
                 boxShadow: '0 0 0 rgba(255, 107, 53, 0)',
-                ease: 'power2.out'
+                ease: 'power3.out'
             });
         });
 
         button.addEventListener('mousedown', function() {
             gsap.to(this, {
-                duration: 0.1,
-                scale: 0.95,
+                duration: 0.12,
+                scale: 0.96,
                 ease: 'power2.out'
             });
         });
 
         button.addEventListener('mouseup', function() {
             gsap.to(this, {
-                duration: 0.2,
+                duration: 0.35,
                 scale: 1.05,
-                ease: 'back.out'
+                ease: 'back.out(1.5)'
             });
         });
     });
@@ -297,19 +337,19 @@ function setupCardHoverEffects() {
 
         card.addEventListener('mouseenter', function() {
             gsap.to(this, {
-                duration: 0.3,
-                y: -8,
-                boxShadow: '0 20px 40px rgba(255, 107, 53, 0.2)',
-                ease: 'power2.out'
+                duration: 0.4,
+                y: -10,
+                boxShadow: '0 24px 48px rgba(255, 107, 53, 0.22)',
+                ease: 'power3.out'
             });
         });
 
         card.addEventListener('mouseleave', function() {
             gsap.to(this, {
-                duration: 0.3,
+                duration: 0.5,
                 y: 0,
                 boxShadow: '0 0 0 rgba(0, 0, 0, 0)',
-                ease: 'power2.out'
+                ease: 'power3.out'
             });
         });
     });
@@ -412,28 +452,28 @@ function setupCursorFollow() {
                 const y = e.clientY - rect.top - rect.height / 2;
 
                 // Use different intensity for service cards vs others
-                const intensity = card.classList.contains('service-card') ? 6 : 12;
+                const intensity = card.classList.contains('service-card') ? 5 : 10;
                 const rotateX = (y / rect.height) * intensity;
                 const rotateY = (x / rect.width) * -intensity;
-                const brightness = 1 + (y / rect.height) * 0.1;
 
                 gsap.to(card, {
-                    duration: 0.2,
+                    duration: 0.35,
                     rotationX: rotateX,
                     rotationY: rotateY,
                     scale: 1.02,
                     transformPerspective: 1000,
+                    ease: 'power2.out',
                     overwrite: 'auto'
                 });
             });
 
             card.addEventListener('mouseleave', () => {
                 gsap.to(card, {
-                    duration: 0.5,
+                    duration: 0.65,
                     rotationX: 0,
                     rotationY: 0,
                     scale: 1,
-                    ease: 'power2.out',
+                    ease: 'expo.out',
                     overwrite: 'auto'
                 });
             });
@@ -484,8 +524,10 @@ function revealTextCharByChar(element, duration = 1) {
  * Ensure smooth scroll works across all browsers
  */
 function ensureSmoothScroll() {
-    // Smooth scroll already set in CSS, but we can enhance it
-    document.documentElement.style.scrollBehavior = 'smooth';
+    // Smooth scroll is now handled by Lenis
+    if (!lenis && typeof Lenis === 'undefined') {
+        document.documentElement.style.scrollBehavior = 'smooth';
+    }
 }
 
 // ==================== ANIMATION PERFORMANCE OPTIMIZATION ====================
@@ -508,6 +550,7 @@ function respectReducedMotion() {
  * Initialize all GSAP animations
  */
 function initializeAnimations() {
+    initLenis();
     initScrollAnimations();
     setupParallax();
     setupButtonEffects();
