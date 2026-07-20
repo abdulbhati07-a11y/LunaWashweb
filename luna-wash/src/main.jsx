@@ -157,6 +157,16 @@ function App() {
           const scrolled = `${(scrollPx / winHeightPx) * 100}%`;
           progressBar.style.width = scrolled;
         }
+
+        // Back to Top Button Visibility
+        const backToTop = document.getElementById('backToTop');
+        if (backToTop) {
+          if (window.scrollY > 300) {
+            backToTop.classList.add('visible');
+          } else {
+            backToTop.classList.remove('visible');
+          }
+        }
         
         requestAnimationFrame(raf);
       }
@@ -446,7 +456,10 @@ function App() {
         <canvas id="bg-canvas"></canvas>
         <div className="hero-content">
           <div className="hero-text">
-            <h1 className="hero-heading">Wear Clean,<br />Live Free.</h1>
+            <h1 className="hero-heading reveal-text is-revealed">
+              <span className="reveal-word">Wear</span> <span className="reveal-word" style={{transitionDelay: '0.1s'}}>Clean,</span><br />
+              <span className="reveal-word" style={{transitionDelay: '0.2s'}}>Live</span> <span className="reveal-word" style={{transitionDelay: '0.3s'}}>Free.</span>
+            </h1>
             <p className="hero-subheading">Premium laundry service that comes to you. Fresh, clean clothes delivered to your door.</p>
             <div className="hero-buttons">
               <button className="btn btn-primary" onClick={() => scrollToSection('contact')}>Book Now</button>
@@ -623,9 +636,18 @@ function App() {
             <div className="footer-section"><h3>Follow Us</h3><ul><li>Facebook: Luna_Wash.Fb</li><li>Instagram: Luna_wash.IG</li><li>Twitter: Luna_wash.tweets</li></ul></div>
             <div className="footer-section"><h3>Legal</h3><ul><li>Privacy Policy</li><li>Terms of Service</li></ul></div>
           </div>
-          <div className="footer-bottom"><p>&copy; 2026 LÜNA WASH. All rights reserved. Made By Muhammad Abdullah Bhatti.</p></div>
+          <div className="footer-bottom"><p>&copy; {new Date().getFullYear()} LÜNA WASH. All rights reserved. Made By Muhammad Abdullah Bhatti.</p></div>
         </div>
       </footer>
+
+      <button 
+        id="backToTop" 
+        className="back-to-top" 
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        aria-label="Back to top"
+      >
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+      </button>
 
       {toast && <div className={`toast show ${toast.type}`}>{toast.message}</div>}
       {modal === 'sign-in' && <AuthModal title="Sign In" onClose={() => setModal(null)} onSubmit={handleSignIn} submitText="Sign In" switchText="Create an account" onSwitch={() => setModal('register')} />}
