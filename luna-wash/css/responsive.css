@@ -44,7 +44,8 @@
 
     .hero-graphic {
         order: -1;
-        height: 300px;
+        height: auto;
+        min-height: 350px;
     }
 
     .floating-circle {
@@ -124,7 +125,8 @@
     }
 
     .nav-menu.active {
-        max-height: 400px;
+        max-height: 100vh;
+        overflow-y: auto;
         padding: var(--spacing-md) 0;
     }
 
@@ -234,7 +236,8 @@
     }
 
     .nav-menu.active {
-        max-height: 350px;
+        max-height: 100vh;
+        overflow-y: auto;
     }
 
     .nav-link {
@@ -291,7 +294,8 @@
     }
 
     .hero-graphic {
-        height: 250px;
+        height: auto;
+        min-height: 300px;
     }
 
     .floating-circle {
