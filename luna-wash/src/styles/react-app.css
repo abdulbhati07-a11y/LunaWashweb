@@ -191,6 +191,7 @@
   z-index: 0;
   pointer-events: none;
   opacity: 0.95;
+  overflow: hidden;
 }
 
 .washer-body {
@@ -264,7 +265,8 @@
 
 @media (max-width: 767px) {
   .laundry-3d {
-    inset: -10% -20%;
+    /* Reduce horizontal bleed on mobile to avoid blocking nearby elements */
+    inset: -8% -5%;
   }
 }
 

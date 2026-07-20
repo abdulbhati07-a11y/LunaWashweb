@@ -46,6 +46,7 @@
         order: -1;
         height: auto;
         min-height: 350px;
+        overflow: hidden;
     }
 
     .floating-circle {
@@ -238,6 +239,7 @@
     .nav-menu.active {
         max-height: 100vh;
         overflow-y: auto;
+        padding: var(--spacing-sm) 0;
     }
 
     .nav-link {
@@ -281,6 +283,16 @@
         gap: var(--spacing-xl);
     }
 
+    .hero-text {
+        position: relative;
+        z-index: 2;
+    }
+
+    .hero-buttons {
+        position: relative;
+        z-index: 3;
+    }
+
     .hero-heading {
         font-size: clamp(28px, 6vw, 40px);
         margin-bottom: var(--spacing-md);
@@ -296,6 +308,7 @@
     .hero-graphic {
         height: auto;
         min-height: 300px;
+        overflow: hidden;
     }
 
     .floating-circle {
